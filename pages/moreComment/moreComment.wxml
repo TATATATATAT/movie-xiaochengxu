@@ -1,0 +1,13 @@
+<view class="comments">
+    <view class="noComments" style="display:{{comments.length!==0?'none':'block'}}">暂无评论</view>
+    <block wx:for="{{comments}}" wx:key="index">
+        <view class="plusComment">
+            <h2 class="commentTitle">{{item.title}}</h2>
+            <view class="userArea">
+                <image class="userImg" src="{{item.headurl}}" mode="widthFix"></image>
+                <text class="nickName">{{item.nickname}}</text>
+            </view>
+            <text class="content">{{item.content?item.content:'暂无更多内容'}}</text>
+        </view>
+    </block>
+</view>

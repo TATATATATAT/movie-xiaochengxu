@@ -1,0 +1,115 @@
+<view class="left">
+    <block wx:for="{{classData}}" wx:key="index">
+        <view class="list" bind:tap="changePage" data-index="{{index}}" style="background:{{index===current?'#fff':'rgb(245,245,245)'}}">
+            {{item}}
+        </view>
+    </block>
+</view>
+<view class="right">
+    <swiper current="{{current}}" bind:animationfinish="pageFinsh">
+        <swiper-item>
+            <view class="infoTitle">影片概况</view>
+            <view class="classBlock">
+                <image class="cover" src="{{basic.img?basic.img:noImage}}" mode="widthFix" lazy-load="false" />
+                <view class="rightInfo">
+                    <h2>{{basic.name}}</h2>
+                    <h3>{{basic.nameEn}}</h3>
+                    <text>{{basic.commentSpecial}}</text>
+                    <text>类型：{{type}}</text>
+                    <view class="date">上映时间：{{date}}</view>
+                    <text>片长：{{basic.mins?basic.mins:'未知'}}</text>
+                    <view class="rating">
+                        评分：{{basic.overallRating===-1||basic.overallRating===0?'暂无评分':basic.overallRating}}
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class="infoTitle">影片简介</view>
+            <view class="classBlock">
+                <text class="story">{{basic.story?basic.story:'暂无简介'}}</text>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class="infoTitle">演职员</view>
+            <view class="noData" style="display: {{basic.actors.length===0&&basic.director.length===0?'block':'none'}}">
+                暂无数据
+            </view>
+            <view class="classBlock">
+                <block wx:for="{{personType}}" wx:key="index">
+                    <h3 class="person-type">
+                        {{item.typeName}}
+                        <span>{{item.typeNameEn}}</span>
+                    </h3>
+                    <block wx:for="{{item.persons}}" wx:key="index">
+                        <view class="actorInfo">
+                            <image  data-errorimg="{{index}}" class="actorImg" src="{{item.image?item.image:noImage}}" mode="widthFix" binderror="errImg"></image>
+                            <view class="textInfo">
+                                <text class="name">姓名：{{item.name?item.name:'未知'}}</text>
+                                <text class="nameEn">英文名：{{item.nameEn?item.nameEn:'未知'}}</text>
+                                <text class="roalName" style="display:{{item.personate?'block':'none'}}">
+                                    饰演：{{item.personate?item.personate:'未知'}}
+                                </text>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class="infoTitle">票房</view>
+            <view class="boxOffice">
+                <view class="todayBox">
+                    {{boxOffice.todayBoxDesUnit?boxOffice.todayBoxDesUnit+':'+boxOffice.todayBoxDes:'暂无今日票房'}}
+                </view>
+                <view class="totalBox">
+                    {{boxOffice.todayBoxDesUnit?boxOffice.totalBoxUnit+':'+boxOffice.totalBoxDes:'暂无票房'}}
+                </view>
+                <view class="ranking">票房排行：{{boxOffice.ranking===0?'暂无排行':boxOffice.ranking}}</view>
+            </view>
+        </swiper-item>
+        <swiper-item class="comments">
+            <view class="infoTitle">影评</view>
+            <view class="plus">
+                精选
+                <view class="more" bind:tap="moreComments" data-movieId="{{currentId}}">更多</view>
+            </view>
+            <view class="noComments" style="display:{{comments.plus.list.length!==0?'none':'block'}}">
+                暂无评论
+            </view>
+            <block wx:for="{{comments.plus.list}}" wx:key="index">
+                <view class="plusComment">
+                    <h2 class="commentTitle">{{item.title}}</h2>
+                    <view class="userArea">
+                        <image class="userImg" src="{{item.headImg}}" mode="widthFix"></image>
+                        <text class="nickName">{{item.nickname}}</text>
+                    </view>
+                    <text class="content">{{item.content}}</text>
+                </view>
+            </block>
+            <view class="mini">
+                短评
+                <view class="more" bind:tap="moreminiComments" data-movieId="{{currentId}}">
+                    更多
+                </view>
+            </view>
+            <view class="noComments" style="display:{{comments.mini.list.length!==0?'none':'block'}}">
+                暂无评论
+            </view>
+            <block wx:for="{{comments.mini.list}}" wx:key="index">
+                <view class="miniComment">
+                    <view class="userArea">
+                        <image class="userImg" src="{{item.headImg}}" mode="widthFix"></image>
+                        <text class="nickName">{{item.nickname}}</text>
+                    </view>
+                    <text class="content">{{item.content}}</text>
+                </view>
+            </block>
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 影片信息  图片 标题 英文标题 副标题（commentSpecical）评分 类型 片长
+简介
+导演、演员
+票房 
+影评 -->

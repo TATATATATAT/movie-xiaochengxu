@@ -1,0 +1,10 @@
+    <view class="noComments" style="display:{{comments.length!==0?'none':'block'}}">暂无评论</view>  
+  <block wx:for="{{comments}}" wx:key="index">
+            <view class="miniComment">
+                <view class="userArea">
+                    <image class="userImg" src="{{item.caimg}}" mode="widthFix"></image>
+                    <text class="nickName">{{item.ca}}</text>
+                <text class="content">{{item.ce}}</text>
+                </view>
+            </view>
+        </block>

@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/coming/coming",
+    "pages/booking/booking",
+    "pages/information/information",
+    "pages/moreComment/moreComment",
+    "pages/moreminiComment/moreminiComment"
+  ],
+  "window": {
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Movies",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ffaf4",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#dbdbdb",
+    "backgroundColor":"#8696a7",
+    "selectedColor": "#707070",
+    "list": [{
+        "pagePath": "pages/booking/booking",
+        "text": "正在售票",
+        "iconPath": "./assets/icon/booking.png",
+        "selectedIconPath": "./assets/icon/active-booking.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "正在热映",
+        "iconPath": "./assets/icon/hot.png",
+        "selectedIconPath": "./assets/icon/active-hot.png"
+      }, 
+      {
+        "pagePath": "pages/coming/coming",
+        "text": "即将上映",
+        "iconPath": "./assets/icon/coming.png",
+        "selectedIconPath": "./assets/icon/active-coming.png"
+      }
+    ]
+  }
+}

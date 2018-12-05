@@ -1,0 +1,31 @@
+<view class="attention">
+    最受期待   <span>Most anticipated</span>
+</view>
+<block wx:for="{{attention}}" wx:key="{{item.id}}">
+    <view class="movie" bind:tap="toInformation" data-id="{{item.id}}">
+        <view class="cover">
+            <image src="{{item.image?item.image:noImage}}" mode="widthFix"></image>
+            <p>有{{item.wantedCount}}人想看</p>
+        </view>
+        <text class="title" selectable="false" space="false" decode="false">{{item.title}}</text>
+        <text selectable="false" space="false" decode="false" class="actor">
+            {{item.actor1}}{{item.actor2?'/':''}}{{item.actor2}}
+        </text>
+    </view>
+</block>
+<view class="coming">
+    即将上映  <span>Coming soon</span>
+</view>
+<block wx:for="{{coming}}" wx:key="{{item.id}}">
+    <view class="movie"  bind:tap="toInformation" data-id="{{item.id}}">
+        <view class="cover">
+            <image src="{{item.image?item.image:noImage}}" mode="widthFix"></image>
+            <p>有{{item.wantedCount}}人想看</p>
+        </view>
+        <text class="title" selectable="false" space="false" decode="false">{{item.title}}</text>
+        <text selectable="false" space="false" decode="false" class="actor">
+            {{item.actor1}}{{item.actor2?'/':''}}{{item.actor2}}
+        </text>
+    </view>
+</block>
+  

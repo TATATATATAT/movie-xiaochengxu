@@ -1,0 +1,12 @@
+<block wx:for="{{movieData}}" wx:key="{{item.id}}">
+    <view class="movie" bind:tap="toInformation"  data-id="{{item.movieId}}">
+        <view class="cover">
+            <image src="{{item.img?item.img:noImage}}" mode="widthFix"></image>
+            <p>{{item.ratingFinal===-1||item.ratingFinal===0?'未评':item.ratingFinal}}</p>
+        </view>
+        <text class="title" selectable="false" space="false" decode="false">{{item.titleCn}}</text>
+        <text selectable="false" space="false" decode="false" class="actor">
+            {{item.actorName1}}{{item.actorName2?'/':''}}{{item.actorName2}}
+        </text>
+    </view>
+</block>

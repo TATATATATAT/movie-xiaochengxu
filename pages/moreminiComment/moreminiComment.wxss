@@ -1,0 +1,51 @@
+.miniComment{
+    width: 100%;
+    position: relative;
+  }
+  .userArea{
+    position: relative;
+    /* height: 50px; */
+    border-top: 1px solid rgb(253, 240, 240);
+    padding:5px 0 ;
+    border-bottom: 1px solid rgb(253, 240, 240);
+  }
+  .nickName{
+    position: absolute;
+    font-size: 14px;
+    word-break: break-all;
+    left: 80px;
+    color: dodgerblue;
+  }
+  .userImg{
+    position: absolute;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+  }
+  .commentTitle{
+    width: 100%;
+    font-size: .8rem;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 800;
+  }
+  .content{
+      display: block;
+    width: 90%;
+    padding: 1rem;
+    line-height: 1rem;
+    font-size: .6rem;
+    padding: 10px;
+    margin-top: 60px;
+  }
+  .noComment{
+    text-indent: 10px;
+  }
+  .content:first-letter{
+    font-size:1rem;
+    color:rgb(56, 130, 228);
+  }
+
+  
+  

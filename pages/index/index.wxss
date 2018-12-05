@@ -1,0 +1,50 @@
+.movie{
+    width: 50%;
+    height: 200px;
+    float: left;
+    position: relative;
+}
+.cover{
+    width: 102px;
+    height: 142px;
+    position: absolute;
+    left: 50%;
+    margin-left: -51px;
+}
+.movie .cover image{
+    width: 100%;
+    height: 100%;
+}
+.movie .cover p{
+    width: 30px;
+    height: 16px;
+    font-size: 14px;
+    line-height: 16px;
+    display: block;
+    text-align: center;
+    position: absolute;
+    background: rgb(67, 151, 67);
+    right: 0;
+    bottom: 0;
+    color: #fff;
+}
+.movie text{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.movie .title{
+    bottom: 30px;
+    height: 14px;
+    line-height: 14px;
+    font-size:14px;
+}
+.movie .actor{
+    bottom: 10px;
+    font-size: 13px;
+    height: 13px;
+    line-height: 5px;
+}
